@@ -32,58 +32,17 @@ You can download the data from the [Airbnb Data Application](https://drive.googl
 
 ## EDA
 
-- Com o ambiente criando utilizamos o comando a seguir para executar o jupyterlab onde será aberto um arquivo notebook onde é realizado alguns processos do EDA)
+- Com o ambiente criado podemos acessar pelo jupter-lab
 
+
+- Dentro da pasta principal
 ```bash
-mlflow run .
-```
-
-## Preprocessing
-
-- Dentro da pasta Preprocessing (realizamos o processo de limpeza da base de dados, retirandos valores repetidos/invalidos e etc):
-
-```bash
-	 mlflow run . -P input_artifact="trabalho_2/raw_data.csv:latest" \
-                -P artifact_name="preprocessed_data.csv" \
-                -P artifact_type="clean_data" \
-                -P artifact_description="Data after preprocessing"
-```
-
-## Data Segregation
-
-- Dentro da pasta Data_segregation (nesse momento criamos os artefatos de train e test):
-
-```bash
-	 mlflow run . -P input_artifact="trabalho_2_preprocessing/preprocessed_data.csv:latest" \
-                -P artifact_root="data" \
-                -P artifact_type="trainvaltest_data" \
-                -P test_size=0.3 \
-                -P stratify="instant_bookable" \
-                -P random_state="13"
-```
-
-## Data Validation
-
-- Dentro da pasta Data_validation (aqui realizamos alguns testes gerais dos dados):
-```bash
-    pytest . -vv
-```
-
-- Dentro da pasta Deterministic_tests (aqui realizamos testes especificos, onde verificamos os tipos dos dados e seu range de valores):
-
-```bash
-    mlflow run .
-```
-- Dentro da pasta Multiple_hypothesis_testing_in_pytest (nesse passo executamos alguns scripts para realizar testes com os artefatos tanto de train como de test):
-
-Test_data.csv:v0             |  Train_data.csv:v0
-:-------------------------:|:-------------------------:
-![test_data](test_data.png)  |  ![train_data](train_data.png)
-
-```bash
-   mlflow run . -P reference_artifact="trabalho_2_segregation/train_data.csv:latest" \
-                -P sample_artifact="trabalho_2_segregation/test_data.csv:latest" \
-                -P ks_alpha=0.05
+	 mlflow run . -P hydra_options="main.execute_steps='download'"
+	 mlflow run . -P hydra_options="main.execute_steps='preprocess'"
+       	 mlflow run . -P hydra_options="main.execute_steps='check_data'"
+         mlflow run . -P hydra_options="main.execute_steps='segregate'"
+         mlflow run . -P hydra_options="main.execute_steps='decision_tree'"
+	 mlflow run . -P hydra_options="main.execute_steps='evalute'"
 ```
 
 ## In case of errors
