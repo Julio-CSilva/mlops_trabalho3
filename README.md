@@ -2,7 +2,7 @@
 
 ![alt text](mlops.jpg)
 
-Repositório relacionado ao trabalho 2 da segunda unidade da matéria de tópicos especiais em inteligência computacional "D", esse repositório se trata de uma reprodução do trabalho do Professor:Ivanovitch Silva (https://github.com/ivanovitchm/mlops), na qual exploramos dados da Airbnb aplicando técnicas de MLops, onde nesse primeiro momento utilizamos ETL, Checagem e segregação dos dados.
+Repositório relacionado ao trabalho final da matéria de tópicos especiais em inteligência computacional "D", esse repositório se trata de uma reprodução do trabalho do Professor:Ivanovitch Silva (https://github.com/ivanovitchm/mlops), na qual exploramos dados da Airbnb aplicando técnicas de MLops, onde nesse primeiro momento utilizamos ETL, Checagem e segregação dos dados.
 
 You can download the data from the [Airbnb Data Application](https://drive.google.com/file/d/16zF4MHEP_bBxAEWpQgVocPupTjRRAgfP/view?usp=sharing).
 
@@ -18,7 +18,7 @@ You can download the data from the [Airbnb Data Application](https://drive.googl
 
 ## Criando o Ambiente de Versionalização
 
-- Dentro da pasta EDA:
+- Dentro da pasta principal:
 
 ```bash
   conda env create -f conda.yml
